@@ -1,0 +1,89 @@
+function refreshSLAFunc(){
+
+var ret;
+var count=0;
+var slaactive = new SCFile("slaactive");
+var query="start.time > '30/11/2017 23:59:59' and agreement.ids=179";
+
+var rc= slaactive.doSelect(query);
+if(rc==RC_SUCCESS)
+{
+	
+	fCount=slaactive.doCount(query);
+	print("Total number of records to be processed: "+fCount);
+	do{
+		var query=queryfunc(slaactive.foreign_filename,slaactive.foreign_key);
+		var filename=filefunc(slaactive.foreign_filename);
+		if(filename.doSelect(query)==RC_SUCCESS )
+		{
+			print(slaactive.foreign_key);
+			
+			var sch=new SCFile("schedule");
+			sch.name = "SLA Refresh for " +slaactive.foreign_filename +";"+slaactive.foreign_key;
+			sch._class = "sla";
+			sch.expiration = system.functions.tod();
+			sch.application="sla.refresh.active.wrapper";
+			sch.strings[0]=slaactive.foreign_filename +";"+slaactive.foreign_key;
+			rs=sch.doInsert();
+			if(rs==RC_SUCCESS)
+			{
+				count++;
+			}
+			system.functions.rtecall("trigger", ret, 0);
+			filename.doUpdate();
+			system.functions.rtecall("trigger", ret, 1);
+			if (count % 100 == 0) 
+				print(count + '/' + fCount + 'records processed.');  
+			
+		}
+		
+		rw=slaactive.getNext();
+	}
+	while(rw==RC_SUCCESS);
+	print("Number of schedule records created :"+count);
+	print("Done");
+}
+else
+print("No records found satisfying the query");
+}
+
+function queryfunc(filename,key)
+{
+	var query = false;
+	
+	switch(filename)
+	{
+		case "incidents": 	query="incident.id=\""+key+"\" and company=\"MTES\"";
+							break;
+		case "probsummary":	query="number=\""+key+"\" and company=\"MTES\"";
+							break;
+		case "ocml"		:	query="number=\""+key+"\" and company=\"MTES\"";
+							break;
+		case "svcCartItem":	query="cartItemId=\""+key+"\" and stars.company=\"MTES\"";
+							break;
+	}
+	
+	return query;
+}
+
+
+function filefunc(file)
+{
+	var filename = "";
+	
+	switch(file)
+	{
+		case "incidents": 	filename=new SCFile(file);
+							break;
+		case "probsummary":	filename=new SCFile(file);
+							break;
+		case "ocml"		:	filename=new SCFile(file);
+							break;
+		case "svcCartItem":	filename=new SCFile(file);
+							break;
+	}
+	
+	return filename;
+}
+
+refreshSLAFunc();

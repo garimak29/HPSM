@@ -1,0 +1,8 @@
+Trace syntax
+1>" t on "- for turnig on the trace.
+2>"ba se.call.process"-for putting a breakpoint , whenever we call a proess.
+3> "c"-for run (till a breakpoint is reached)
+4> "s"-for checking the trace line one by one . 
+5>"d $L.process.name"-for seeking the process name 
+6>"ba se.call.process"- again to remove the breakpoint.
+7>"t off"-for turning off the trace.

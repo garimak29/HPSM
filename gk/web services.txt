@@ -1,0 +1,7 @@
+These are used to expose table to external source:
+
+extaccess
+eventmap
+eventregister
+
+External source can be src, web services etc.

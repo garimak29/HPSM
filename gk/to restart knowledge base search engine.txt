@@ -1,0 +1,5 @@
+To restart knowledgebase search engine 
+1. this acts like a tomcat server
+2. enter the ip in putty (dev sheet)
+3. go to opt/stars/maint/tomcat/bin
+4. startup.sh should be executed 

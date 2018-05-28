@@ -1,0 +1,4 @@
+sm -httpPort:15049 -RTM:4 -debugdbquery:999 -debughttp:1 -log:../logs/subscription_trace.log
+
+
+putty > run > paste this cmd , no need to stop the server for this .
