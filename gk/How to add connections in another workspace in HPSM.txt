@@ -1,0 +1,5 @@
+How to add connections in another workspace in HPSM?
+1. go to workspace of service manager.
+2. Follow the path 
+"\ServiceManager\workspace\.metadata\.plugin\org.eclipse.debug.core\.launches"
+3. Copy the connections and use it in another workspace.

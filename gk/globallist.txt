@@ -1,0 +1,4 @@
+globallist - how to search for values (display list)
+1 if "Use localized Values" is checked -
+ search for the values in scmsg
+-class:local:"filename"

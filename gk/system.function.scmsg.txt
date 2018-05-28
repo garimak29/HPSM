@@ -1,0 +1,54 @@
+AVASCRIPT OBJECT: SYSTEM.FUNCTIONS.SCMSG
+This JavaScript object is unique to HP Service Manager. The system.functions.scmsg object allows you to call a particular Service Manager message record from JavaScript.
+
+Usage
+system.functions.scmsg( message number, message class, message elements )
+
+ 
+
+Service Manager global system objects do not have constructors.
+
+Arguments
+The following arguments are valid for this object:
+
+Argument – message number
+Data type – String
+Required – Yes
+Description – This argument contains the Service Manager message number you want to call into memory.
+
+Argument – message class
+Data type – String
+Required – Yes
+Description – This argument contains the Service Manager message class you want to call into memory.
+
+Argument – message elements
+Data type – Array
+Required – No
+Description – This argument contains the variable message elements indicated by %S in the message record.
+
+Properties
+None
+
+Methods
+None
+
+Return values
+A string containing the complete message text indicated by the arguments.
+
+Example
+This example does the following:
+
+Sets variables to define the message record
+Calls the RAD function scmsg()
+Displays the results of the RAD function scmsg()
+This example requires the following sample data:
+
+A valid Service Manager message record (for example, “km” class record 14 “Group %S and Profile
+%S are already in category %S”)
+var msgrecord = “14”;
+var msgclass = “km”;
+var arguments = new Array();
+arguments.push( “New Group” );
+arguments.push( “New Profile Name” );
+arguments.push( “Category Name” );
+print( system.functions.scmsg( msgrecord, msgclass, arguments ) );

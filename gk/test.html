@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Placeholder style example</title>
+  <style type="text/css">
+  input {
+    background-color:#E8E8E8;
+    color:black;
+  }
+  /* placeholder only style */   
+  input.address:-ms-input-placeholder {
+    font-style:italic;        
+    color: red;
+    background-color: yellow;
+  }
+  </style>
+</head>
+<body>
+  <form id="test">
+    <p><label>Enter Name: <input id="name" placeholder="Your Name"/></label></p>
+    <p><label>Enter Street: <input id="street" placeholder="Your address" /></label></p>
+    <p><label>Enter a zip code: <input type="num" pattern="(0-9){5}" title="5 digit zip" id="zip" class="address" placeholder="5 digit zip" /></label></p>
+    <input type="submit" />
+  </form>
+</body>
+</html>

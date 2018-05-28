@@ -1,0 +1,12 @@
+﻿
+sm.ini trace parameters:
+
+RTM:3 ---> Produces the RADTRACE entries
+
+debugdbquery:999 ---> Produces the DBQUERY entries
+
+sqldebug:1 ---> Produces the SQL statements
+
+sqlreuseablesql:0 ---> Disables bind variables
+
+ 

@@ -1,0 +1,29 @@
+RAD function: updatestatus
+A RAD function that returns the result of the last update operation on a Service Manager file.
+
+Function
+
+updatestatus
+
+Format
+
+updatestatus(file_variable)
+Parameters
+
+file_variable is the variable you want to retrieve.
+
+Factors
+
+If the last update operation succeeded, this function returns 0 (zero), otherwise it returns one of the following values:
+
+48: The update failed because it contained an invalid duplicate key.
+49: The update failed because it contained an invalid null key.
+50: The update failed because it contained all null keys.
+51: The update failed because the record had already been modified.
+52: The update failed because the record had already been deleted.
+53: The update failed because of a trigger error.
+-1: Other errors.
+Every time the file variable is moved or changed (for example, a new record is inserted), the return value of this function is reset to 0.
+Example
+
+$L.updateresult=updatestatus($L.file)

@@ -1,0 +1,46 @@
+function conditionValue ( record )
+{
+//name=record.name;
+//print(name);
+var approvalDef=new SCFile("ApprovalDef");
+var flag=0;
+var query="name=\""+record.name+"\"";
+var rc=approvalDef.doSelect(query);
+if(rc==RC_SUCCESS)
+{
+	//print("in");
+	//print(approvalDef.stars_condition.getText());
+	
+	var c=trim(approvalDef.stars_condition.getText());
+		cond=c.split("?");
+	for(var i=0;i<cond.length;i++)
+		{
+		cond[i]=cond[i].replace(/\\/g,'');
+		
+		//print(cond[i]);
+		
+		if(approvalDef.condition[i]!=cond[i])
+		{	approvalDef.condition[i]=cond[i];
+			flag=1;
+		}
+		
+		//print(approvalDef.condition[i])
+		
+		}
+		if(flag==1)
+	        approvalDef.doUpdate();
+}
+
+return approvalDef.condition ;
+}
+
+
+
+function trim(s)
+{
+	s = s.replace('{"','');
+	s = s.replace('"}','');
+	return s;	
+}
+
+

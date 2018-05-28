@@ -1,0 +1,54 @@
+ Step 1. Install SQL Server
+   
+ Run setup exe file and while installating do following changes
+
+  a. Use SQL authentication instead of Window Aunth. (use username /password : sa/ 2016)
+
+  b. After installation copmplete Check SQL Sever service (window->run-> Services-> SQL service should enable)
+
+  c. Login to SQL Server thru client (SQL Management Studio with credential: SQL Server Authn. and USERNAME/PSWD : sa/ XXXX) 
+
+  d. Create new database (i.e. HPSM)
+
+  e. Check the user 'sa' have sysadmin right (Goto server's security tab -> Properties ) ALSO change the default DB to newly created Db i.e.'HPSM'
+
+
+
+
+ Step 2. COnfigure ODBC connection
+   
+  a. Choose odbc.exe file
+     - For 64 bit System use odbc exe file located mostly in C:\Windows\SysWOW64 (AND if 32 bit System use odbc exe file located mostly in C:\Windows\System32)
+
+  b. open odbc -> GO to System DNS tab-> Click 'Add' and select 'SQL Server' and use 
+       - Name : HPSMDS
+       - Server : (local) -> Next -> Test The connection (successful then end!!!) 
+
+
+
+
+
+ Step 3. Install SM Server
+  
+  a. Install server through setup exe file
+
+  b. After Installation do SM configuration (we can also do later manually through sm.configure bat file )
+      - HTTP : 13080
+      - SQL DB Name : HPSMDS  (check and validate later in sm.ini ; should be same)
+      - SQl User    : sa
+      - SQL Passwrd : XXXX (used same password during sql installation)
+
+  c. Verify Connection and Upload data
+
+
+
+
+
+ Step 4. Install SM Client 
+ 
+  a. Client should be of same verion of server
+
+  b. After installation open the client and use username 'falcon' and Server HOSt/Port is 'localhost' and '13080' 
+
+  c. Connect.
+

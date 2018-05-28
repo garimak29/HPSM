@@ -1,0 +1,12 @@
+Angular
+1. download node.js from https://nodejs.org/en/
+2. dowbload visualstudio from https://code.visualstudio.com/docs/?dv=win
+3. download a local git .
+4. install all the above softwares.
+5. for maintaining a git open gitgui and add the repository there (path of the files you want to maintain )
+6. for installing package.json follow the below steps :
+	| go to command promt
+	| go to the folder where u want to install and type "npm init"
+	| enter the details and in the end enter yes 
+	| npm install lite-server --save-dev
+

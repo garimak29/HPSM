@@ -1,0 +1,4 @@
+how to add licence file in connect it?
+
+1. D:\HPE\Connect-It 9.70 en\AutoPass\data\LicFile.txt
+2. change it with a usable licence file

@@ -1,0 +1,55 @@
+WriteFile
+parameters :
+1. path - will save the file on server only
+2. binary - type of file need to be mentioned here (a-append , b -binary ,t -text), you can also mix them example -ba - binary and append the file 
+3. object -that you need to write in the file 
+
+
+
+
+how to write a file in HPSM
+
+function writeToFile( path, binary, object )
+{
+
+//print( "Writing " + path + " to file..." );
+
+var output = writeFile( path, binary, object );
+
+//print( "The number of bytes written to file was: " + output );
+
+return output;
+}
+
+function writeLocations()
+{
+
+filePath = "/download/ITAM/SM7locations.txt"; //Path on Server
+isBinary = null;
+
+var temp_arr = "";
+
+var locs = new SCFile("location");
+
+var theXMLDate = new XMLDate(new Date());
+var todaysDate = theXMLDate.getSCDateTimeString();
+var query = "sysmodtime>'"+todaysDate+ "' - '2 00:00:00'";
+//var query = "true";
+
+rc1 = locs.doSelect(query);
+
+if (rc1 == RC_SUCCESS ) {
+do {
+temp_arr+=locs.location;
+temp_arr+="\n";
+}
+while (locs.getNext() == RC_SUCCESS);
+}
+
+fileObject = temp_arr;
+
+writeToFile( filePath, isBinary, fileObject );
+
+}
+
+writeLocations();

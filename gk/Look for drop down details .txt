@@ -1,0 +1,15 @@
+the "Look for" drop down appears because of following reasons
+1. In the Object check for 3 things :
+   a. Profile variable - $L.env in this check for the views .
+			type in rad debugger - 	d $L.env
+						d views in $L.env
+			check if the condition applied is true or not . If not then this might b one of the reasons why the table name is not showing up in the list . 
+if it is comming null check in fc in priveleges for views 
+
+NOTE: remember , these commands are to be typed when you open the table . example when you search for operator table .
+
+   b. check for search config. allow search condition should be true
+
+2. check for profile application - this plays a very imp role in fetching the record
+
+3. check for variables $L.advFind.table .

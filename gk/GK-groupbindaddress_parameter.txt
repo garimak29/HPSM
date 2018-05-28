@@ -1,0 +1,23 @@
+Parameter: groupbindaddress
+
+Startup parameters change the behavior of the HP Service Manager server. You can always set a startup parameter from the server's OS command prompt.
+
+Parameter
+groupbindaddress
+Description
+This parameter defines the TCP/IP address of the network adapter you want servlet container processes to use to communicate with other processes in a virtual group. You only need to define this parameter if the Service Manager host contains more than one network adapter.
+
+It is best practice to place this parameter in the Service Manager initialization file so that all servlet container processes started on the same host share the TCP/IP address specified by this parameter.
+
+Valid if set from
+server's OS command prompt
+Initialization file (sm.ini)
+Requires restart of Service Manager server?
+Yes
+Default value
+None
+Possible values
+Any TCP/IP address
+Example usage
+Initialization file:
+groupbindaddress:10.0.0.124

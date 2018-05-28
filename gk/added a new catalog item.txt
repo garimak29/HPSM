@@ -1,0 +1,5 @@
+For adding a new catalog item follow the instructions 
+1. go to svcCatalog add an item (admin mode) - copy it from the previous one
+2. then add the display name in svcDisplay as well
+
+or add the item directly from the menu available it will add the item in both svcCatalog and svcDisplay as join table gets open  add it via menu>serviceCatalog>admin> manage Catalog

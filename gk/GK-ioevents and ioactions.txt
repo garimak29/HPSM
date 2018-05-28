@@ -1,0 +1,6 @@
+Ioevents 
+- these are called after the records are added/ updates
+  associated actions are executed according to the condition applied 
+Ioactions
+- these are the actions defined in the ioevent 
+- one can specify what operations are perfermed in the decleared action

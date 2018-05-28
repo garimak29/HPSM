@@ -1,0 +1,2 @@
+$L.success.flg=rtecall("trigger", $L.return.code, 1) to turn triggers on
+$L.success.flg=rtecall("trigger", $L.return.code, 0) to turn triggers off 
